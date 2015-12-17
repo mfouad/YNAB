@@ -34,11 +34,14 @@ function App(settings){
 
   client.authenticate().then(function(){
     client.loadJson(rootFile).then(function(root){
+        console.log("budgets:", root.relativeKnownBudgets)
       self.budget.budgets(root.relativeKnownBudgets);
-      if(self.budget.budgets().length === 1){
+    // bug, if user has more than one budget file, this used to fail  
+    if(self.budget.budgets().length > 1){
         self.budget.select(self.budget.budgets()[0])
       }
     }).fail(function(){
+        console.log("error")
       self.errorMessage("Unable to load YNAB settings file (" + rootFile + "). Make sure you connect to a Dropbox account with that YNAB syncs with.");
     });
   });
@@ -275,14 +278,16 @@ function BudgetController(settings){
   })
 
   self.loading = function(percent, message) {
+    console.log(percent);
     self.loadingProgress(percent);
     self.loadingMessages.unshift(message);
   }
 
   self.select = function(budget){
+      console.log("before selecting", budget)
     self.budget(budget);
     self.device(null);
-
+      console.log("selecting", budget)
     self.loading(10, "Looking up where the YNAB data folder is ...");
     client.loadJson(self.budgetMetaPath()).then(function(data){
       self.loading(20, "Reading the YNAB data folder ...");

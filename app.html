@@ -145,9 +145,14 @@
     <script src="app.js"></script>
     <script>
     var app;
-    if(securedPage) {
-      app = new App({ key: "qrrtbcmepbyplpp"});
-      ko.applyBindings(app);      
+    if(true) {
+      app = new App({ key: "u6fmf8ic5k5uxnl",
+                     secret: "29vn3m7aprpmrq1"
+                    });
+        setTimeout(function () {
+            ko.applyBindings(app);            
+        }, 5000)
+      
     }
     </script>
   </body>

@@ -1,3 +1,5 @@
+
+
 body {
     margin-top: 10px;
     font-family: "Source Sans Pro", sans-serif;
@@ -78,4 +80,13 @@ body {
     .accounts {
         position: fixed;
     }
+}
+
+
+#chart-transactions {
+    width: 100%;
+}
+
+#table-transactions {
+    width:100%;
 }

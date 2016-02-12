@@ -25,7 +25,7 @@ function transactionFilter() {
 
 function transactionTable() {
     charts.transactionsTable = dc.dataTable("#table-transactions");
-    
+
     charts.transactionsTable
         .dimension(dimenssions.months)
         .group(function (d) {
@@ -59,13 +59,13 @@ function transactionTable() {
 
 function clientFilter() {
     charts.clients = dc.pieChart("#chart-clients");
-    
+
     charts.clients
 //        .slicesCap(4)
-//        .innerRadius(100)
-//        .externalLabels(50)
-//        .externalRadiusPadding(50)
-//        .drawPaths(true)
+        .innerRadius(100)
+        .externalLabels(50)
+        .externalRadiusPadding(50)
+        .drawPaths(true)
         .dimension(dimenssions.clients)
         .group(groups.clients)
 //        .legend(dc.legend());
@@ -73,7 +73,7 @@ function clientFilter() {
 
 function accountFilter() {
     charts.accounts = dc.pieChart("#chart-accounts");
-    
+
     charts.accounts
 //        .slicesCap(4)
 //        .innerRadius(100)
